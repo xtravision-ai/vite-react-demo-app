@@ -1,27 +1,84 @@
-# React + TypeScript + Vite
+# xtravision-react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React SDK for XtraVision API
 
-Currently, two official plugins are available:
+# What is vite-react-demo-app?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It is an sdk for fitness related data assessments like calories, rep-count, yoga pose-matching etc specifically for the vite framework
 
-## Expanding the ESLint configuration
+# How to install
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+``npm install @xtravision/xtravision-react``  
+or  
+``yarn add @xtravision/xtravision-react``
 
-- Configure the top-level `parserOptions` property like this:
+# Example
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+[Demo](https://github.com/xtravision-ai/vite-react-demo-app)
+
+# API Reference
+
+- import the relevant features you want:
+
+```javascript
+import {
+    ClassCategory,
+    Features,
+    Assessment,
+    XtraVisionOnDemandProvider,
+    useXtraVisionOnDemandContext,
+    useXtraVisionAssessmentContext,
+    XtraVisionAssessmentProvider,
+    XtraVisionEventEmitter, // optional
+} from "@xtravision/xtravision-react";
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- use the context to get the values:
+
+```javascript
+const { lastJsonMessage, isCamOn, setIsCamOn } = useXtraVisionAssessmentContext();
+  const videoElementRef = useRef<any>(null);
+  // use for draw skeleton
+  const canvasRef = useRef<any>(null);
+
+  const isEduScreen = false;
+  // assessment name you want
+  const assessment_name = 'SQUATS';
+  const auth_token ="__AUTH_TOKEN__";
+
+  const connectionData = {
+    assessment_name,
+    auth_token,
+  }
+
+  const requestData = {
+    isPreJoin
+  }
+
+```
+
+- wrap the component in the context provider and pass the results from the previous context:
+
+```javascript
+    <XtraVisionAssessmentProvider
+      videoElementRef={videoElementRef}
+      connectionData={connectionData}
+      requestData={requestData}
+      canvasElementRef={canvasRef}
+    >
+      {children}
+    </XtraVisionAssessmentProvider>
+```
+
+- `{children}` elements must have below code and need to connected media input devices using `navigator.mediaDevices`. Please take further reference from demo app. 
+```javascript
+        <video ref={videoElementRef} ></video>
+        <!-- <canvas ref={canvasElementRef}></canvas>  // use canvas if you need skeleton -->
+  ```
+
+
+  - If you need live user key-points then you can use `XtraVisionEventEmitter`
+  ```javascript
+      XtraVisionEventEmitter.on('onUserKeyPoints', (data: any) => {console.log('data.toString()');})
+
+  ```
