@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const IntensityTracker = ({ val }) => {
+export const IntensityTracker = ({ val }: any) => {
   const classes = useStyles({ val });
   return (
     <div className={classes.root}>

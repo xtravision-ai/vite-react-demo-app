@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
@@ -30,7 +29,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Timer = ({ val }) => {
+const Timer = ({ val } : any) => {
   const classes = useStyles();
 
   const percent = ((60 - val) * 100) / 60; //60s

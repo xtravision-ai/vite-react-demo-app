@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
 import Timer from './ui/Timer';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TimeUnderLoad = ({ timeLeft, restTimeLeft, prediction }) => {
+const TimeUnderLoad = ({ timeLeft, restTimeLeft, prediction }: any) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

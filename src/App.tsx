@@ -1,9 +1,8 @@
 import "./styles.css";
-import React from "react";
 import Routes from "./Routes";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
     root: {
       display: "flex",

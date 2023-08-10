@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   textArea: {
@@ -17,20 +16,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ArcMeter = ({ reps }) => {
+const ArcMeter = ({ reps }: any) => {
   const classes = useStyles();
 
-  const getOpacity = cnt => {
+  const getOpacity = (cnt: number) => {
     if (reps >= cnt) return 1;
     return 0.3;
   };
 
-  const getStroke = cnt => {
+  const getStroke = (cnt: any) => {
     if (cnt == reps) return 'url(#paint0_linear_54_3810)';
     return '';
   };
 
-  const getCol = cnt => {
+  const getCol = (cnt: any) => {
     const defaultCol = '#00B0FF';
     return defaultCol;
 

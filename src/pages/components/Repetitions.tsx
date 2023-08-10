@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import React from "react";
 import ArcMeter from "./ui/ArcMeter";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Repetitions = ({ reps }) => {
+const Repetitions = ({ reps}: any) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

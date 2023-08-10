@@ -1,4 +1,4 @@
-import React from 'react';
+//@ts-expect-error
 import { motion } from 'framer-motion';
 
 const loadingContainer = {

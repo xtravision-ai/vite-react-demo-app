@@ -298,13 +298,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const Dashboard = ({ history }) => {
+const Dashboard = ({ history }: any) => {
   const classes = useStyles();
 
   const serverEndpoint = getFromLocalStorage('serverEndpoint') ?? 'production';
   const [selectedOption, setSelectedOption] = useState(serverEndpoint);
 
-  const handleOptionChange = (event) => {
+  const handleOptionChange = (event : any) => {
     setSelectedOption(event.target.value);
     saveToLocalStorageWithExpiration('serverEndpoint', event.target.value)
   };
@@ -413,7 +413,7 @@ const Dashboard = ({ history }) => {
   );
 };
 
-const HomePage = ({ history }) => {
+const HomePage = ({ history } : any) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>

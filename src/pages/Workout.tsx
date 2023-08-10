@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Button, makeStyles, Typography } from '@material-ui/core';
 import CallEndIcon from '@material-ui/icons/CallEnd';
 import {
@@ -300,7 +300,7 @@ const AppContainer = ({
   };
 
   const stopCam = () => {
-    window?.stream?.getTracks()?.forEach((track) => track.stop());
+    window?.stream?.getTracks()?.forEach((track: { stop: () => any; }) => track.stop());
 
     if (videoElementRef.current === null) return;
     const stream = videoElementRef.current.srcObject as MediaStream;
@@ -484,7 +484,7 @@ const AppContainer = ({
   );
 };
 
-const Workout = ({ history }) => {
+const Workout = ({ history }: any) => {
   const { innerHeight, innerWidth } = window;
   const classes = useStyles({ innerHeight, innerWidth });
 
@@ -497,10 +497,10 @@ const Workout = ({ history }) => {
     ? process.env.REACT_APP_XTRA_AUTH_TOKEN
     : '__AUTH_TOKEN__';
   let assessment_config = {};
-  let user_config = {};
+  const user_config = {};
   const selectedOption =   getFromLocalStorage('serverEndpoint') ?? 'production';
 
-  let libData = {
+  const libData = {
     serverEndpoint: selectedOption
   };
 

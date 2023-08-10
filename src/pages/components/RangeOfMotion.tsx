@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
 import clsx from 'clsx';
 import { appTheme } from '../../types/constants';
 
@@ -99,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RangeOfMotion = ({ angles }) => {
+const RangeOfMotion = ({ angles }: any) => {
   const classes = useStyles();
 
   const BodyAnglesBoard = () => {
