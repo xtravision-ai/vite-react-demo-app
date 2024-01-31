@@ -13,9 +13,7 @@
     "@hot-loader/react-dom": "npm:@hot-loader/react-dom",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@mediapipe/camera_utils": "^0.3.1640029074",
-    "@mediapipe/drawing_utils": "^0.3.1620248257",
-    "@mediapipe/pose": "^0.5.1635988162",
+    
     "@xtravision/xtravision-react": "^2.4.0",
     "framer-motion": "^4.1.17",
     "moment": "^2.29.1",
@@ -35,7 +33,7 @@
     "@types/node": "^20.4.5",
     "@types/react-hot-loader": "^4.1.1",
     "@types/react-router-dom": "^5.3.3",
-    "@types/react": "^18.2.15",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -46,6 +44,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "react-error-boundary": "^3.1.4",
     "typescript": "^5.1.6",
-    "vite": "^4.4.5"
+    "vite": "^5.0.8"
   }
 }
